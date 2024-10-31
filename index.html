@@ -178,6 +178,26 @@
             background-color: #004494;
         }
 
+        /* Estilos para el botón flotante */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .floating-button:hover {
+            background-color: #004494;
+        }
+
         @media (max-width: 768px) {
             .services {
                 flex-direction: column;
@@ -186,7 +206,7 @@
 
             .service {
                 max-width: 90%;
-                flex: 1 1 auto; /* Permite que los servicios se ajusten */
+                flex: 1 1 auto;
             }
         }
     </style>
@@ -233,15 +253,15 @@
             <p>Ser la compañía de telecomunicaciones más confiable, innovadora y centrada en el cliente.</p>
         </section>
 
-        <section id="contact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <section id="contact">
             <h2>Contacto</h2>
             <p>¿Tienes preguntas? ¡Contáctanos!</p>
             <p>Email: contacto@voice4voice.tel</p>
             <p>Teléfono: +789 23456 7890</p>
-            <button id="toggleButton" class="submit-button">Te Llamamos</button> <!-- Botón para abrir el modal -->
         </section>
-
     </div>
+
+    <button id="toggleButton" class="floating-button">📞</button> <!-- Botón flotante para abrir el modal -->
 
     <div id="myModal" class="modal">
         <div class="modal-content">
