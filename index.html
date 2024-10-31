@@ -106,39 +106,36 @@
             width: 100%;
         }
 
-        /* Estilos para el modal */
-        .modal {
-            display: none;
+        /* Estilos para el formulario flotante */
+        .floating-form {
             position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffffff;
             border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 300px;
+            display: none; /* Oculto por defecto */
+            z-index: 1000;
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
+        .floating-button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 1001; /* Asegura que esté por encima del formulario */
+        }
+
+        .floating-button:hover {
+            background-color: #004494;
         }
 
         .form-group {
@@ -175,26 +172,6 @@
         }
 
         .submit-button:hover {
-            background-color: #004494;
-        }
-
-        /* Estilos para el botón flotante */
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 15px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .floating-button:hover {
             background-color: #004494;
         }
 
@@ -261,39 +238,43 @@
         </section>
     </div>
 
-    <button id="toggleButton" class="floating-button">📞</button> <!-- Botón flotante para abrir el modal -->
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Te llamamos</h2>
-            <form id="callbackForm">
-                <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Número de Teléfono:</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="surname">Apellido 1:</label>
-                    <input type="text" id="surname" name="surname" value="ApellidoEjemplo" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="email@ejemplo.com" readonly>
-                </div>
-                <button type="submit" class="submit-button">Solicitar Llamada</button>
-            </form>
-        </div>
+    <button id="toggleButton" class="floating-button">📞</button> <!-- Botón flotante para mostrar el formulario -->
+    
+    <div id="floatingForm" class="floating-form">
+        <h2>Te llamamos</h2>
+        <form id="callbackForm">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Número de Teléfono:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Apellido 1:</label>
+                <input type="text" id="surname" name="surname" value="ApellidoEjemplo" readonly>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="email@ejemplo.com" readonly>
+            </div>
+            <button type="submit" class="submit-button">Solicitar Llamada</button>
+        </form>
     </div>
 
     <footer>
         <p>&copy; 2024 Voice4Voice. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="index.js"></script> <!-- Enlazar con el archivo JavaScript -->
+    <script>
+        // Muestra u oculta el formulario flotante al hacer clic en el botón
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            const form = document.getElementById('floatingForm');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+
     <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
         <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
         <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
