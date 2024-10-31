@@ -1,5 +1,5 @@
 const clientId = "de850a88-2b15-45b1-995d-38b94860dfaf"; // Client ID de Genesys
-const redirectUri = "https://suberviola79.github.io/"; // Tu URL de GitHub Pages
+const redirectUri = "https://botlab-cc.github.io/bot-lab/"; // Tu URL de GitHub Pages
 const authUrl = `https://login.mypurecloud.ie/oauth/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&state=12345`;
 
 // Función para redirigir al usuario al login de Genesys y obtener el token de acceso
