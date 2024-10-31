@@ -13,92 +13,66 @@
             padding: 0;
             background-color: #e9f5ff;
             color: #333;
-            line-height: 1.5;
         }
 
         header {
             background: #0056b3;
             color: white;
-            padding: 15px 0;
+            padding: 20px;
             text-align: center;
         }
 
         nav {
-            margin: 10px 0;
+            margin: 20px 0;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ffc107;
+            margin: 0 15px;
         }
 
         .hero {
             background: url('https://images.unsplash.com/photo-1518756131217-2d6b3e45f52e') no-repeat center center/cover;
-            height: 350px;
+            height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
-            position: relative;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
         }
 
         .container {
             max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        h2 {
-            color: #0056b3;
-            margin: 20px 0 10px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #0056b3;
-            display: inline-block;
-            padding-bottom: 5px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .services {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            justify-content: space-around;
             margin: 20px 0;
         }
 
         .service {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin: 10px;
-            flex: 1 1 calc(30% - 20px);
-            max-width: calc(30% - 20px);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 30%;
             text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .service:hover {
-            transform: translateY(-5px);
         }
 
         .service img {
             max-width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 10px;
         }
 
         footer {
             text-align: center;
-            padding: 15px 0;
+            padding: 20px;
             background: #0056b3;
             color: white;
             position: relative;
@@ -106,36 +80,39 @@
             width: 100%;
         }
 
-        /* Estilos para el formulario flotante */
-        .floating-form {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            width: 300px;
+        /* Estilos para el modal */
+        .modal {
             display: none; /* Oculto por defecto */
-            z-index: 1000;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
         }
 
-        .floating-button {
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            padding: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto; /* Centro verticalmente */
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+            width: 300px; /* Ancho del modal */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            position: relative;
-            z-index: 1001; /* Asegura que esté por encima del formulario */
-        }
-
-        .floating-button:hover {
-            background-color: #004494;
         }
 
         .form-group {
@@ -145,7 +122,6 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-weight: 700;
         }
 
         .form-group input {
@@ -153,17 +129,12 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus {
-            border-color: #0056b3;
         }
 
         .submit-button {
             background-color: #0056b3;
             color: white;
-            padding: 10px;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -175,17 +146,6 @@
             background-color: #004494;
         }
 
-        @media (max-width: 768px) {
-            .services {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .service {
-                max-width: 90%;
-                flex: 1 1 auto;
-            }
-        }
     </style>
 </head>
 
@@ -230,61 +190,57 @@
             <p>Ser la compañía de telecomunicaciones más confiable, innovadora y centrada en el cliente.</p>
         </section>
 
-        <section id="contact">
+        <section id="contact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
             <h2>Contacto</h2>
             <p>¿Tienes preguntas? ¡Contáctanos!</p>
             <p>Email: contacto@voice4voice.tel</p>
             <p>Teléfono: +789 23456 7890</p>
+            <button id="toggleButton" class="submit-button">Te Llamamos</button> <!-- Botón para abrir el modal -->
         </section>
+
     </div>
 
-    <button id="toggleButton" class="floating-button">📞</button> <!-- Botón flotante para mostrar el formulario -->
-    
-    <div id="floatingForm" class="floating-form">
-        <h2>Te llamamos</h2>
-        <form id="callbackForm">
-            <div class="form-group">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Número de Teléfono:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="surname">Apellido 1:</label>
-                <input type="text" id="surname" name="surname" value="ApellidoEjemplo" readonly>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="email@ejemplo.com" readonly>
-            </div>
-            <button type="submit" class="submit-button">Solicitar Llamada</button>
-        </form>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Te llamamos</h2>
+            <form id="callbackForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Número de Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="surname">Apellido 1:</label>
+                    <input type="text" id="surname" name="surname" value="ApellidoEjemplo" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="email@ejemplo.com" readonly>
+                </div>
+                <button type="submit" class="submit-button">Solicitar Llamada</button>
+            </form>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Voice4Voice. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        // Muestra u oculta el formulario flotante al hacer clic en el botón
-        document.getElementById('toggleButton').addEventListener('click', function() {
-            const form = document.getElementById('floatingForm');
-            form.style.display = form.style.display === 'block' ? 'none' : 'block';
-        });
-    </script>
-
-    <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
-        <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-        <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-        <df-messenger
-            project-id="lqairmh-agbg-iberia-song-ccai"
-            agent-id="cd50098d-eab6-48a8-8055-6935cab79f73"
-            language-code="es"
-            max-query-length="-1">
-            <df-messenger-chat-bubble chat-title="ChatBot Fibra"></df-messenger-chat-bubble>
-        </df-messenger>
+    <script src="index.js"></script> <!-- Enlazar con el archivo JavaScript -->
+        <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+        project-id="lqairmh-agbg-iberia-song-ccai"
+        agent-id="cd50098d-eab6-48a8-8055-6935cab79f73"
+        language-code="es"
+        max-query-length="-1">
+        <df-messenger-chat-bubble chat-title="ChatBot Fibra"></df-messenger-chat-bubble>
+    </df-messenger>
     </div>
 </body>
 
