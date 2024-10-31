@@ -13,90 +13,92 @@
             padding: 0;
             background-color: #e9f5ff;
             color: #333;
-            line-height: 1.6; /* Mejora la legibilidad */
+            line-height: 1.5;
         }
 
         header {
             background: #0056b3;
             color: white;
-            padding: 20px 0; /* Espaciado vertical */
+            padding: 15px 0;
             text-align: center;
         }
 
         nav {
-            margin: 20px 0;
+            margin: 10px 0;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s; /* Transición suave al pasar el mouse */
+            margin: 0 10px;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #ffc107; /* Color de hover para el enlace */
+            color: #ffc107;
         }
 
         .hero {
             background: url('https://images.unsplash.com/photo-1518756131217-2d6b3e45f52e') no-repeat center center/cover;
-            height: 400px;
+            height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
             position: relative;
-            padding: 20px;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5); /* Sombra interna */
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
         }
 
         .container {
             max-width: 1200px;
-            margin: 20px auto; /* Espacio en los lados */
-            padding: 0 20px; /* Espaciado en los lados */
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
         h2 {
-            color: #0056b3; /* Color del título */
-            border-bottom: 2px solid #0056b3; /* Línea inferior */
-            padding-bottom: 10px;
+            color: #0056b3;
+            margin: 20px 0 10px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #0056b3;
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
         .services {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap; /* Asegura que se acomoden bien en pantallas pequeñas */
+            flex-wrap: wrap;
             margin: 20px 0;
         }
 
         .service {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-            padding: 20px;
-            margin: 10px; /* Espacio entre los servicios */
-            flex: 1 1 30%; /* Permite que se ajusten al contenedor */
-            max-width: 30%; /* Máximo ancho para los servicios */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin: 10px;
+            flex: 1 1 calc(30% - 20px);
+            max-width: calc(30% - 20px);
             text-align: center;
-            transition: transform 0.3s; /* Transición suave para el hover */
+            transition: transform 0.3s;
         }
 
         .service:hover {
-            transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+            transform: translateY(-5px);
         }
 
         .service img {
             max-width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 15px; /* Espacio debajo de la imagen */
+            margin-bottom: 10px;
         }
 
         footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 15px 0;
             background: #0056b3;
             color: white;
             position: relative;
@@ -106,30 +108,29 @@
 
         /* Estilos para el modal */
         .modal {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
         .modal-content {
-            background-color: #ffffff;
-            margin: 15% auto; /* Centro verticalmente */
+            background-color: #fff;
+            margin: 10% auto;
             padding: 20px;
-            border: 1px solid #888;
-            border-radius: 8px;
-            width: 90%; /* Ajuste responsive */
-            max-width: 400px; /* Ancho máximo del modal */
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
         }
 
         .close {
             color: #aaa;
             float: right;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
         }
 
@@ -147,6 +148,7 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .form-group input {
@@ -154,17 +156,17 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            transition: border-color 0.3s; /* Transición suave */
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus {
-            border-color: #0056b3; /* Color de borde al enfocar */
+            border-color: #0056b3;
         }
 
         .submit-button {
             background-color: #0056b3;
             color: white;
-            padding: 10px 15px;
+            padding: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -178,12 +180,13 @@
 
         @media (max-width: 768px) {
             .services {
-                flex-direction: column; /* Apila los servicios en pantallas pequeñas */
-                align-items: center; /* Centra los servicios */
+                flex-direction: column;
+                align-items: center;
             }
 
             .service {
-                max-width: 90%; /* Ajusta el ancho máximo en pantallas pequeñas */
+                max-width: 90%;
+                flex: 1 1 auto; /* Permite que los servicios se ajusten */
             }
         }
     </style>
