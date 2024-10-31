@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,13 @@
             padding: 0;
             background-color: #e9f5ff;
             color: #333;
+            line-height: 1.6; /* Mejora la legibilidad */
         }
 
         header {
             background: #0056b3;
             color: white;
-            padding: 20px;
+            padding: 20px 0; /* Espaciado vertical */
             text-align: center;
         }
 
@@ -29,6 +31,11 @@
             color: white;
             text-decoration: none;
             margin: 0 15px;
+            transition: color 0.3s; /* Transición suave al pasar el mouse */
+        }
+
+        nav a:hover {
+            color: #ffc107; /* Color de hover para el enlace */
         }
 
         .hero {
@@ -39,27 +46,44 @@
             justify-content: center;
             color: white;
             text-align: center;
+            position: relative;
+            padding: 20px;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5); /* Sombra interna */
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 20px auto; /* Espacio en los lados */
+            padding: 0 20px; /* Espaciado en los lados */
+        }
+
+        h2 {
+            color: #0056b3; /* Color del título */
+            border-bottom: 2px solid #0056b3; /* Línea inferior */
+            padding-bottom: 10px;
         }
 
         .services {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Asegura que se acomoden bien en pantallas pequeñas */
             margin: 20px 0;
         }
 
         .service {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
             padding: 20px;
-            width: 30%;
+            margin: 10px; /* Espacio entre los servicios */
+            flex: 1 1 30%; /* Permite que se ajusten al contenedor */
+            max-width: 30%; /* Máximo ancho para los servicios */
             text-align: center;
+            transition: transform 0.3s; /* Transición suave para el hover */
+        }
+
+        .service:hover {
+            transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
         }
 
         .service img {
@@ -67,11 +91,12 @@
             height: 200px;
             object-fit: cover;
             border-radius: 8px;
+            margin-bottom: 15px; /* Espacio debajo de la imagen */
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 20px 0;
             background: #0056b3;
             color: white;
             position: relative;
@@ -97,7 +122,8 @@
             padding: 20px;
             border: 1px solid #888;
             border-radius: 8px;
-            width: 300px; /* Ancho del modal */
+            width: 90%; /* Ajuste responsive */
+            max-width: 400px; /* Ancho máximo del modal */
         }
 
         .close {
@@ -128,6 +154,11 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            transition: border-color 0.3s; /* Transición suave */
+        }
+
+        .form-group input:focus {
+            border-color: #0056b3; /* Color de borde al enfocar */
         }
 
         .submit-button {
@@ -145,6 +176,16 @@
             background-color: #004494;
         }
 
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column; /* Apila los servicios en pantallas pequeñas */
+                align-items: center; /* Centra los servicios */
+            }
+
+            .service {
+                max-width: 90%; /* Ajusta el ancho máximo en pantallas pequeñas */
+            }
+        }
     </style>
 </head>
 
@@ -230,16 +271,16 @@
     </footer>
 
     <script src="index.js"></script> <!-- Enlazar con el archivo JavaScript -->
-        <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
-    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-    <df-messenger
-        project-id="lqairmh-agbg-iberia-song-ccai"
-        agent-id="cd50098d-eab6-48a8-8055-6935cab79f73"
-        language-code="es"
-        max-query-length="-1">
-        <df-messenger-chat-bubble chat-title="ChatBot Fibra"></df-messenger-chat-bubble>
-    </df-messenger>
+    <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
+        <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+        <df-messenger
+            project-id="lqairmh-agbg-iberia-song-ccai"
+            agent-id="cd50098d-eab6-48a8-8055-6935cab79f73"
+            language-code="es"
+            max-query-length="-1">
+            <df-messenger-chat-bubble chat-title="ChatBot Fibra"></df-messenger-chat-bubble>
+        </df-messenger>
     </div>
 </body>
 
