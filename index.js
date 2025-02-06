@@ -13,7 +13,7 @@ function getAccessTokenFromUrl() {
     if (hash.includes("access_token")) {
         const params = new URLSearchParams(hash.substring(1));
         const accessToken = params.get("access_token");
-        alert("Token de acceso obtenido: " + accessToken); // Depuración del token
+        // alert("Token de acceso obtenido: " + accessToken); // Depuración del token
         return accessToken;
     } else {
         alert("No se encontró ningún token en la URL.");
@@ -61,7 +61,7 @@ async function createContact(name, surname, phone, email) {
         }
 
         const data = await response.json();
-        alert("Contacto creado exitosamente: " + JSON.stringify(data));
+        //alert("Contacto creado exitosamente: " + JSON.stringify(data));
     } catch (error) {
         console.error("Error en createContact:", error);
         alert("Ocurrió un error al crear el contacto.");
