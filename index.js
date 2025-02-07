@@ -13,7 +13,6 @@ function getAccessTokenFromUrl() {
     if (hash.includes("access_token")) {
         const params = new URLSearchParams(hash.substring(1));
         const accessToken = params.get("access_token");
-        // alert("Token de acceso obtenido: " + accessToken); // Depuración del token
         return accessToken;
     } else {
         alert("No se encontró ningún token en la URL.");
@@ -61,10 +60,11 @@ async function createContact(name, surname, phone, email) {
         }
 
         const data = await response.json();
-        //alert("Contacto creado exitosamente: " + JSON.stringify(data));
+        // alert("Contacto creado exitosamente: " + JSON.stringify(data));
     } catch (error) {
         console.error("Error en createContact:", error);
         alert("Ocurrió un error al crear el contacto.");
+        throw error; // Lanzar el error para ser capturado en la función de envío del formulario
     }
 }
 
@@ -91,7 +91,16 @@ document.getElementById("callbackForm").onsubmit = function(event) {
     const surname = document.getElementById("surname").value;
     const email = document.getElementById("email").value;
 
-    createContact(name, surname, phone, email); // Llama a la función para crear el contacto
+    createContact(name, surname, phone, email) // Llama a la función para crear el contacto
+        .then(() => {
+            // Mostrar mensaje de agradecimiento
+            alert("Gracias, su solicitud ha sido gestionada, en breve le llamaremos.");
+            // Cerrar la ventana modal
+            document.getElementById("myModal").style.display = "none";
+        })
+        .catch((error) => {
+            console.error("Error al crear el contacto:", error);
+        });
 };
 
 // Verificar si ya hay un token en la URL
