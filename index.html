@@ -125,7 +125,9 @@
         }
 
         .form-group input {
-            width: 100%;
+            width: 70%; /* Ajusta el ancho al 70% */
+            margin: 0 auto; /* Centra las cajas */
+            display: block; /* Asegura que se comporten como bloques */
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -187,7 +189,7 @@
             <h3>Misión</h3>
             <p>Proporcionar servicios de telecomunicaciones de alta calidad, adaptados a las necesidades de nuestros clientes.</p>
             <h3>Visión</h3>
-            <p>Ser la compañía de telecomunicaciones más confiable e innovadora y centrada en el cliente.</p>
+            <p>Ser la compañía de telecomunicaciones más confiable, innovadora y centrada en el cliente.</p>
         </section>
 
         <section id="contact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -213,12 +215,11 @@
                     <label for="phone">Número de Teléfono:</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
-                <!-- Campos ocultos -->
-                <div class="form-group" style="display: none;">
+                <div class="form-group">
                     <label for="surname">Apellido 1:</label>
                     <input type="text" id="surname" name="surname" value="ApellidoEjemplo" readonly>
                 </div>
-                <div class="form-group" style="display: none;">
+                <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" value="email@ejemplo.com" readonly>
                 </div>
@@ -232,16 +233,16 @@
     </footer>
 
     <script src="index.js"></script> <!-- Enlazar con el archivo JavaScript -->
-    <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
-        <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-        <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-        <df-messenger
-            project-id="lqairmh-agbg-iberia-song-ccai"
-            agent-id="cd50098d-eab6-48a8-8055-6935cab79f73"
-            language-code="es"
-            max-query-length="-1">
-            <df-messenger-chat-bubble chat-title="ChatBot Fibra"></df-messenger-chat-bubble>
-        </df-messenger>
+        <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+        project-id="lqairmh-agbg-iberia-song-ccai"
+        agent-id="cd50098d-eab6-48a8-8055-6935cab79f73"
+        language-code="es"
+        max-query-length="-1">
+        <df-messenger-chat-bubble chat-title="ChatBot Fibra"></df-messenger-chat-bubble>
+    </df-messenger>
     </div>
 </body>
 
