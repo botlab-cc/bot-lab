@@ -10,17 +10,13 @@ function authorizeUser() {
 // Función para extraer el token de la URL después de redirigir
 function getAccessTokenFromUrl() {
     const hash = window.location.hash;
-    console.log("Hash de la URL: ", hash); // Depuración: verificar el contenido del hash
-
     if (hash.includes("access_token")) {
         const params = new URLSearchParams(hash.substring(1));
         const accessToken = params.get("access_token");
-        
-        console.log("Token de acceso obtenido: ", accessToken); // Depuración: mostrar el token
-
+        // alert("Token de acceso obtenido: " + accessToken); // Depuración del token
         return accessToken;
     } else {
-        console.error("No se encontró ningún token en la URL.");
+        alert("No se encontró ningún token en la URL.");
         return null;
     }
 }
@@ -102,11 +98,5 @@ document.getElementById("callbackForm").onsubmit = function(event) {
 window.onload = function() {
     if (!window.location.hash.includes("access_token")) {
         authorizeUser(); // Redirige al usuario si no tiene un token
-    } else {
-        const token = getAccessTokenFromUrl();
-        if (!token) {
-            console.error("No se ha obtenido el token de acceso. Redirigiendo nuevamente.");
-            authorizeUser(); // Si no obtuvimos el token, forzamos la redirección
-        }
     }
 };
