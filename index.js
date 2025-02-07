@@ -1,41 +1,31 @@
-// Obtener el modal
-var modal = document.getElementById('myModal');
+const clientId = "de850a88-2b15-45b1-995d-38b94860dfaf"; // Client ID de Genesys
+const redirectUri = "https://botlab-cc.github.io/bot-lab/"; // Tu URL de GitHub Pages
+const authUrl = `https://login.mypurecloud.ie/oauth/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&state=12345`;
 
-// Obtener el botón que abre el modal
-var btn = document.getElementById('toggleButton');
-
-// Obtener el elemento <span> que cierra el modal
-var span = document.getElementsByClassName('close')[0];
-
-// Cuando el usuario hace clic en el botón, abre el modal
-btn.onclick = function() {
-    modal.style.display = "block";
+// Función para redirigir al usuario al login de Genesys y obtener el token de acceso
+function authorizeUser() {
+    window.location.href = authUrl;
 }
 
-// Cuando el usuario hace clic en <span> (x), cierra el modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+// Función para extraer el token de la URL después de redirigir
+function getAccessTokenFromUrl() {
+    const hash = window.location.hash;
+    console.log("Hash de la URL: ", hash); // Depuración: verificar el contenido del hash
 
-// Cuando el usuario hace clic fuera del modal, también lo cierra
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (hash.includes("access_token")) {
+        const params = new URLSearchParams(hash.substring(1));
+        const accessToken = params.get("access_token");
+        
+        console.log("Token de acceso obtenido: ", accessToken); // Depuración: mostrar el token
+
+        return accessToken;
+    } else {
+        console.error("No se encontró ningún token en la URL.");
+        return null;
     }
 }
 
-// Manejo del envío del formulario
-document.getElementById("callbackForm").onsubmit = function(event) {
-    event.preventDefault(); // Evita el envío del formulario
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const surname = document.getElementById("surname").value;
-    const email = document.getElementById("email").value;
-
-    createContact(name, surname, phone, email); // Llama a la función para crear el contacto
-};
-
-// Función para crear un contacto en Genesys Cloud
+// Función para crear un contacto en la API de Genesys Cloud
 async function createContact(name, surname, phone, email) {
     const accessToken = getAccessTokenFromUrl(); // Obtiene el token de la URL
 
@@ -50,9 +40,9 @@ async function createContact(name, surname, phone, email) {
         {
             data: {
                 NOMBRE: name,
-                APELLIDO1: surname,  // Enviado vacío
+                APELLIDO1: surname,
                 TELEFONO: phone,
-                MAIL: email // Enviado vacío
+                MAIL: email
             },
             callable: true
         }
@@ -82,8 +72,41 @@ async function createContact(name, surname, phone, email) {
     }
 }
 
-// Función para obtener el token de acceso desde la URL
-function getAccessTokenFromUrl() {
-    const params = new URLSearchParams(window.location.hash.substring(1));
-    return params.get('access_token');
-}
+// Lógica para abrir el modal
+document.getElementById("toggleButton").onclick = function() {
+    document.getElementById("myModal").style.display = "block";
+};
+
+document.getElementsByClassName("close")[0].onclick = function() {
+    document.getElementById("myModal").style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById("myModal")) {
+        document.getElementById("myModal").style.display = "none";
+    }
+};
+
+// Manejo del envío del formulario
+document.getElementById("callbackForm").onsubmit = function(event) {
+    event.preventDefault(); // Evita el envío del formulario
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const surname = document.getElementById("surname").value;
+    const email = document.getElementById("email").value;
+
+    createContact(name, surname, phone, email); // Llama a la función para crear el contacto
+};
+
+// Verificar si ya hay un token en la URL
+window.onload = function() {
+    if (!window.location.hash.includes("access_token")) {
+        authorizeUser(); // Redirige al usuario si no tiene un token
+    } else {
+        const token = getAccessTokenFromUrl();
+        if (!token) {
+            console.error("No se ha obtenido el token de acceso. Redirigiendo nuevamente.");
+            authorizeUser(); // Si no obtuvimos el token, forzamos la redirección
+        }
+    }
+};
