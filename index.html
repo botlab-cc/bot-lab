@@ -1,85 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice4Voice - Servicios de Telecomunicaciones</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Accenture Song: Crecimiento através de la relevancia</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e9f5ff;
-            color: #333;
         }
-
         header {
-            background: #0056b3;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        nav {
-            margin: 20px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        .hero {
-            background: url('https://images.unsplash.com/photo-1518756131217-2d6b3e45f52e') no-repeat center center/cover;
-            height: 400px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+            padding: 10px;
+            background-color: #111;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        header img {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+			margin-left: 40px;
+			margin-top: 25px;
         }
-
-        .services {
+        header nav {
             display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+            gap: 60px;
+			margin-left: 150px;
+			align-items:center;
         }
-
-        .service {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            width: 30%;
-            text-align: center;
-        }
-
-        .service img {
-            max-width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0056b3;
+        header nav a {
+            text-decoration: none;
             color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            font-size: 15px;
+			align-items:center;
+		}
+        .images-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            padding: 0px;
+			margin-top: 40px;
         }
-
+        .images-section img {
+            width: 100%;
+            max-width: 2000px;
+            height: auto;
+        }
         /* Estilos para el modal */
         .modal {
             display: none; /* Oculto por defecto */
@@ -134,9 +103,10 @@
         }
 
         .submit-button {
-            background-color: #0056b3;
+            background-color: #000000;
             color: white;
-            padding: 10px 15px;
+            font-size: 15px;
+            padding: 10px 0px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -145,62 +115,30 @@
         }
 
         .submit-button:hover {
-            background-color: #004494;
+            background-color: #A100FF;
         }
-
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Voice4Voice - Servicios de Telecomunicaciones</h1>
-        <nav>
-            <a href="#services">Servicios</a>
-            <a href="#about">Sobre Nosotros</a>
-            <a href="#contact">Contacto</a>
-        </nav>
-    </header>
 
-    <div class="container">
-        <section id="services">
-            <h2>Nuestros Servicios</h2>
-            <div class="services">
-                <div class="service">
-                    <img src="https://images.pexels.com/photos/2685280/pexels-photo-2685280.jpeg" alt="Planes de Telefonía">
-                    <h3>Planes de Telefonía</h3>
-                    <p>Ofrecemos una variedad de planes que se adaptan a tus necesidades.</p>
-                </div>
-                <div class="service">
-                    <img src="https://images.pexels.com/photos/3184406/pexels-photo-3184406.jpeg" alt="Internet Rápido">
-                    <h3>Internet Rápido</h3>
-                    <p>Disfruta de una conexión a Internet veloz y estable.</p>
-                </div>
-                <div class="service">
-                    <img src="https://images.pexels.com/photos/3184297/pexels-photo-3184297.jpeg" alt="Soporte 24/7">
-                    <h3>Soporte 24/7</h3>
-                    <p>Estamos aquí para ayudarte en cualquier momento del día.</p>
-                </div>
-            </div>
-        </section>
+<header>
+    <img src="ACN-logo.png" alt="Logo">
+    <nav>
+        <a href="#">Servicios</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Incorpórate</a>
+		<button id="toggleButton" class="submit-button">Te Llamamos</button> <!-- Botón para abrir el modal -->
+    </nav>
+</header>
 
-        <section id="about">
-            <h2>Sobre Nosotros</h2>
-            <p>En Voice4Voice, nuestra misión es ofrecerte las mejores soluciones de telecomunicaciones. Con un equipo experto y tecnología de vanguardia, estamos comprometidos a mantenerte conectado.</p>
-            <h3>Misión</h3>
-            <p>Proporcionar servicios de telecomunicaciones de alta calidad, adaptados a las necesidades de nuestros clientes.</p>
-            <h3>Visión</h3>
-            <p>Ser la compañía de telecomunicaciones más confiable e innovadora y centrada en el cliente.</p>
-        </section>
-
-        <section id="contact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <h2>Contacto</h2>
-            <p>¿Tienes preguntas? ¡Contáctanos!</p>
-            <p>Email: contacto@voice4voice.tel</p>
-            <p>Teléfono: +789 23456 7890</p>
-            <button id="toggleButton" class="submit-button">Te Llamamos</button> <!-- Botón para abrir el modal -->
-        </section>
-
-    </div>
+<div class="images-section">
+    <img src="imagen_1.png" alt="Imagen 1">
+    <img src="imagen_2.png" alt="Imagen 2">
+    <img src="imagen_3.png" alt="Imagen 3">
+    <img src="imagen_4.png" alt="Imagen 4">
+    <img src="imagen_5.png" alt="Imagen 5">
+	<img src="imagen_6.png" alt="Imagen 6">
+</div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -228,11 +166,6 @@
             </form>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Voice4Voice. Todos los derechos reservados.</p>
-    </footer>
-
     <script src="index.js"></script> <!-- Enlazar con el archivo JavaScript -->
     <div style="position: fixed; bottom: 20px; right: 20px; width: 400px;">
         <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
@@ -246,5 +179,4 @@
         </df-messenger>
     </div>
 </body>
-
 </html>
